@@ -91,7 +91,7 @@ $(document).ready(function() {
                 data: $.extend({}, data, {
                     foods: $('#foods').val(),
                     drinks: $('#drinks').val(),
-                    misc: $('#miscs').val(),
+                    misc: $('#misc').val(),
                     buildup: $('#buildup').is(':checked') ? 1 : 0,
                     teardown: $('#teardown').is(':checked') ? 1 : 0,
                 }),
