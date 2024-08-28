@@ -56,9 +56,11 @@
                             #weather2.col-md-6
 
     -# Form
-    .row
+
+    -# Medium, large and xtra-large
+    .row.d-xs-none.d-sm-none.d-md-none.d-lg-block.d-xl-block
         .col-md-12
-            %table.table{id: "visitors"}
+            %table.table
                 %tr
                     %td{colspan: 2}
                         Ich/Wir wohnen in Hausnummer
@@ -160,10 +162,9 @@
 
                 %tr
                     %td
-                        .form-check.form-switch
-                            %input.form-check-input{type: "checkbox", id: "buildup", tabindex: 15}
-                            %label.form-check-label{for: "buildup"}
-                                Ich/Wir können beim Aufbau helfen
+                        %label{for: "buildup"}
+                            Ich/Wir können beim Aufbau helfen
+                        %input{type: "checkbox", id: "buildup", tabindex: 15}
                     %td.so_far
                         (Bisher
                         =@buildup
@@ -171,10 +172,9 @@
 
                 %tr
                     %td
-                        .form-check.form-switch
-                            %input.form-check-input{type: "checkbox", id: "teardown", tabindex: 16}
-                            %label.form-check-label{for: "buildup"}
-                                Ich/Wir können beim Aufbau helfen
+                        %label{for: "buildup"}
+                            Ich/Wir können beim Aufbau helfen
+                        %input{type: "checkbox", id: "teardown", tabindex: 16}
                     %td.so_far
                         (Bisher
                         =@teardown
@@ -184,8 +184,149 @@
                     %td{colspan: 2}
                         %input{class: "submit", type: "button", value: "Abschicken", tabindex: 17}
 
-                %tr{id: "houses"}
+    -# Xtra-small and small¬
+    .row.d-xs-block.d-sm-block.d-md-block.d-lg-none.d-xl-none
+        .col-md-12
+            %table.table{id: "visitors"}
+                %tr
+                    %td
+                        Ich/Wir wohnen in Hausnummer
+                        %select.space{id: "houseno", tabindex: 1}
+                            -(1..159).step(2).each do |num|
+                                %option{value: num}= "&sharp;%d" % num
+                %tr
+                    %td
+                        Ich/Wir kommen mit
+                        %input.input-lg{id: "adultsno", type: "number", min: 0, value: 1, tabindex: 2}
+                        Erwachsenen
+                        %input.input-lg{id: "childrenno", type: "number", min: 0, value: 0, tabindex: 3}
+                        Kindern
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@adultsno
+                        Erwachsene und
+                        =@childrenno
+                        Kinder)
+                %tr
+                    %td
+                        Ich/Wir können
+                        %input.input-lg{id: "beerbenchsno", type: "number", min: 0, value: 0, tabindex: 4}
+                        Bierzeltgarnitur(en) mitbringen
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@beerbenchsno
+                        Bierzeltgarnituren)
+                %tr
+                    %td
+                        Ich/Wir können
+                        %input.input-lg{id: "gardentablesno", type: "number", min: 0, value: 0, tabindex: 5}
+                        Gartentisch(e) und
+                        %input.input-lg{id: "chairsno", type: "number", min: 0, value: 0, tabindex: 6}
+                        Stühle mitbringen
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@gardentablesno
+                        Gartentische und
+                        =@chairsno
+                        Stühle)
+                %tr
+                    %td
+                        Ich/Wir können
+                        %input.input-lg{id: "standtablesno", type: "number", min: 0, value: 0, tabindex: 7}
+                        Stehtische mitbringen
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@standtablesno
+                        Stehtische)
+                %tr
+                    %td
+                        Ich/Wir können
+                        %input.input-lg{id: "walltablesno", type: "number", min: 0, value: 0, tabindex: 8}
+                        Tapeziertisch(e) [als Buffett] mitbringen
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@walltablesno
+                        Tapeziertische)
+                %tr
+                    %td
+                        Ich/Wir können
+                        %input.input-lg{id: "tentsno", type: "number", min: 0, value: 0, tabindex: 9}
+                        Zelte mitbringen
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@tentsno
+                        Zelte)
+                %tr
+                    %td
+                        Ich/Wir können
+                        %input.input-lg{id: "grillsno", type: "number", min: 0, value: 0, tabindex: 10}
+                        Grill mitbringen
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@grillsno
+                        Grills)
+                %tr
+                    %td
+                        Ich/Wir können
+                        %input.input-lg{id: "parasolsno", type: "number", min: 0, value: 0, tabindex: 11}
+                        Sonnenschirme mitbringen
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@parasolsno
+                        Sonnenschirme)
+                %tr
+                    %td
+                        Ich/Wir bringen Speisen mit: 
+                        %textarea{id: "comment", rows: 2, tabindex: 12}
+                %tr
+                    %td
+                        Ich/Wir bringen Getränke mit: 
+                        %textarea{id: "comment", rows: 2, tabindex: 13}
+                %tr
+                    %td
+                        Sonstiges: 
+                        %textarea{id: "comment", rows: 2, tabindex: 14}
+
+                %tr
+                    %td
+                        %label{for: "buildup"}
+                            Ich/Wir können beim Aufbau helfen
+                        %input{type: "checkbox", id: "buildup", tabindex: 15}
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@buildup
+                        Helfende)
+
+                %tr
+                    %td
+                        %label{for: "buildup"}
+                            Ich/Wir können beim Aufbau helfen
+                        %input{type: "checkbox", id: "teardown", tabindex: 16}
+                %tr
+                    %td.so_far
+                        (Bisher
+                        =@teardown
+                        Helfende)
+
+                %tr
                     %td{colspan: 2}
+                        %input{class: "submit", type: "button", value: "Abschicken", tabindex: 17}
+
+
+    .row.d-xs-block.d-sm-block.d-md-block.d-lg-none.d-xl-none
+        .col-md-12
+            %table.table
+                %tr
+                    %td
                         %h2
                             Folgende Hausnummern sind schon mit dabei:
 
