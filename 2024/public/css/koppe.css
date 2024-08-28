@@ -1,0 +1,242 @@
+/* Colors */
+:root {
+    --light_gray: #eee;
+    --dark_gray: #282826;
+    --white: #fafbf8;
+    --black: #000;
+    --green: #566344;
+    --border: 1px solid #566344;
+    --highlight: #253661;
+}
+
+/* Font */
+@font-face {
+    font-family: 'farmgarden1';
+    src: url('/fonts/Farmgarden Regular.otf');
+}
+
+@font-face {
+    font-family: 'farmgarden2';
+    src: url('/fonts/farmgarden.ttf');
+}
+
+.farmgarden1 {
+    font-family: 'farmgarden', Arial, sans-serif;
+}
+
+.farmgarden2 {
+    font-family: 'farmgarden', Arial, sans-serif;
+    color: var(--white) !important;
+}
+
+.icon {
+    font-size: 50px;
+    font-family: 'farmgarden2';
+}
+
+/* Tags */
+BODY {
+    background-color: var(--light_gray);
+    color: var(--black);
+}
+
+
+/* Image */
+#wallpaper, #weather1, #weather2 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: var(--border);
+}
+
+#wallpaper {
+    background-image: url(../media/koppestr.png);
+}
+
+#weather1 {
+    background-image: url(../media/weather1.jpg);
+    border-right: none;
+}
+
+#weather2 {
+    background-image: url(../media/weather2.jpg);
+    border-left: none;
+}
+
+#weather1, #weather2 {
+    width: 50%;
+    height: 100px;
+    opacity: 50%;
+    border-top: var(--border);
+}
+
+#weather1:hover, #weather2:hover {
+    opacity: 100%;
+    border-color: var(--highlight);
+}
+
+/* Headline */
+h1 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 100px;
+    color: var(--white);
+    margin-top: 50px;
+    font-family: 'farmgarden1', Arial, sans-serif;
+    text-shadow: 3px 3px 3px black;
+}
+
+h2 {
+    letter-spacing: 4px;
+    text-align: center;
+    font-size: 30px;
+    color: var(--black);
+    margin-top: 10px;
+    font-family: 'farmgarden1', Arial, sans-serif;
+    opacity: 75%;
+    background-color: var(--light_gray);
+}
+
+h3 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 60px;
+    color: var(--black);
+    margin-top: 50px;
+}
+
+h4 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 21px;
+    color: var(--white);
+    margin-top: 10px;
+}
+
+/* Content */
+td, input, textarea {
+    font-size: 20px;
+    margin: 10px;
+    color: var(--black);
+    vertical-align: middle !important;
+}
+
+div {
+    font-size: 20px;
+    vertical-align: middle !important;
+}
+
+input, textarea {
+  color: var(--black);
+  border: var(--border);
+  width: 100%;
+  text-shadow: none;
+}
+
+input[type=button], input[type=submit] {
+  color: var(--black);
+  border: var(--border);
+}
+
+input[type=number] {
+    display: inline;
+    width: 4em;
+}
+
+input:hover, textarea:hover {
+  border: 1px solid var(--highlight);
+}
+
+.title-item {
+    font-size: 25px;
+    color: var(--white);
+    padding: 5px;
+}
+
+.text-item {
+    font-size: 25px;
+    padding: 5px;
+    color: var(--black);
+    text-align: justify;
+}
+
+.table td, .table th {
+    border-bottom: var(--border);
+}
+
+/* Divider */
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: var(--border);
+}
+
+/* Form */
+.so_far {
+    color: var(--dark_gray);
+    font-size: 20px;
+    font-family: 'farmgarden1';
+    text-align: right;
+    white-space: nowrap
+}
+
+.so_far a, .so_far a:active, .so_far a:visited, .so_far a:link {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.so_far a:hover {
+    text-decoration: underline;
+    color: var(--highlight);
+}
+
+/* Houses */
+#list > div:nth-child(odd) {
+    color: var(--light_gray);
+}
+
+#list > div:nth-child(even) {
+    color: var(--dark_gray);
+}
+
+#list {
+    padding: 0px;
+}
+
+#list > * {
+    padding: 10px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Flash */
+.flash {
+    position: fixed;
+    bottom: 30px;
+    left: 0px;
+    right: 0px;
+    z-index: 99999;
+    text-align: center;
+}
+
+.flash .box {
+    font-size: 25px;
+    color: #fff;
+    width: 300px;
+    margin: 0px auto;
+    padding: 5px;
+    background-color: var(--white);
+    border: var(--border);
+}
+
+/* Bootstrap */
+.form-check-label {
+    padding-left: 0px;
+}
