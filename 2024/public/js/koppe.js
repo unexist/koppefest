@@ -99,7 +99,7 @@ $(document).ready(function() {
                 /* Success handler */
                 success: function (data, status) {
                     /* Insert data */
-                    $('#list').prepend($('<div><span class="icon">'
+                    $('#list').prepend($('<div style="margin-top: 30px"><span class="icon">&sharp;'
                         + $('#houseno').val() + '</span></div>'));
 
                     /* Reset errors */
