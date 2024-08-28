@@ -239,12 +239,14 @@ hr {
 
 .flash .box {
     font-size: 25px;
-    color: #fff;
+    color: var(--black);
     width: 300px;
     margin: 0px auto;
     padding: 5px;
     background-color: var(--white);
     border: var(--border);
+    font-family: 'farmgarden1';
+    opacity: 75%;
 }
 
 /* Bootstrap */
