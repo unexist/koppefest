@@ -4,7 +4,7 @@
  * @file jquery handler
  * @author Christoph Kappel <christoph@unexist.dev>
  * @version $Id: 2024/koppe.rb,v 0 1724858416.0-7200 unexist $
- *¬
+ *
  * This program can be distributed under the terms of the GNU GPLv3.
  * See the file COPYING for details.
  */
@@ -33,82 +33,93 @@ $(document).ready(function() {
         });
 
         /* Find count of flash elements */
-        var flashes = $("div.flash");
+        var flashes = $('div.flash');
 
-        $("#page").append(flash);
+        $('#page').append(flash);
 
         if (0 < flashes.length) {
-            flash.css("top", (parseInt(flash.css("top"))
-                - flashes.length * (flash.outerHeight(true) + 10)) + "px");
+            flash.css('top', (parseInt(flash.css('top'))
+                - flashes.length * (flash.outerHeight(true) + 10)) + 'px');
         }
 
         /* Display message for some time */
-        flash.fadeIn("slow").delay(5000).hide("slow", function() {
+        flash.fadeIn('slow').delay(5000).hide('slow', function() {
             var height = flash.outerHeight(true);
 
             flash.remove();
 
-            var flashes = $("div.flash");
+            var flashes = $('div.flash');
 
             if (0 < flashes.length) {
                 for(var i = 0; i < flashes.length; i++) {
                     var f = $(flashes[i]);
 
-                    f.css("top", (parseInt(f.css("top")) -
-                        - height + 10) + "px");
+                    f.css('top', (parseInt(f.css('top')) -
+                        - height + 10) + 'px');
                 }
             }
         });
     }
 
     /* Handle submit */
-    $(".submit").click(function(e) {
-        var name = $("#name").val();
+    $('.submit').click(function(e) {
+        const fields = [
+            'houseno', 'adultsno', 'childrenno', 'beerbenchsno',
+            'gardentablesno', 'chairsno', 'standtablesno', 'walltablesno',
+            'tentsno', 'grillsno', 'parasolsno'
+        ];
+        var errno = 0;
+        var data = {};
 
-        if ("" != name) {
-            var comment = $("#comment").val();
-            var monster = $(this).val();
+        /* Sanity check fields */
+        $(fields).each(function(idx, elemName) {
+            var elem = $('#' + elemName);
+            var value = elem.val();
 
-            /* Store data */
+            if ("" === value || isNaN(value)) {
+                elem.css('border-color', 'red');
+                errno++;
+            } else {
+                data[elemName] = value;
+            }
+        });
+
+        if (0 === errno) {
             $.ajax({
-                type: "POST",
-                url: "/ghost",
-                data: {
-                    name: name,
-                    monster: monster, 
-                    comment: comment
-                },
+                type: 'POST',
+                url: '/visit',
+                data: $.extend({}, data, {
+                    foods: $('#foods').val(),
+                    drinks: $('#drinks').val(),
+                    misc: $('#miscs').val(),
+                    buildup: $('#buildup').is(':checked') ? 1 : 0,
+                    teardown: $('#teardown').is(':checked') ? 1 : 0,
+                }),
 
                 /* Success handler */
                 success: function (data, status) {
                     /* Insert data */
-                    $("#list").prepend($('<div><span class="dingbats icon" style="display: block; margin-top: 30px">'
-                        + monster + '</span><span>' + name + '</span></div>'));
+                    $('#list').prepend($('<div><span class="icon">'
+                        + $('#houseno').val() + '</span></div>'));
 
-                    if ("" != comment) {
-                        $('<tr><td class="comment" colspan="3"><span class="name">' + name
-                            + '</span><span class="text">' + comment
-                            + '</span></td></tr>').insertAfter($("#ghosts"));
-                    }
+                    /* Reset errors */
+                    $(fields).each(function(elemName) {
+                        var elem = $('#' + elem);
 
-                    /* Clear */
-                    $("#name").val("");
-                    $("#comment").val("");
-                    $("#name").css("border-color", "white");
+                        elem.css('border-color', 'black');
+                    });
 
                     /* Update UI */
-                    showToast("Yay");
+                    showToast('Wir freuen uns!');
                 },
 
                 /* Error handler */
                 error: function (xhr, status, e) {
-                    showToast("Das ging schief: " + xhr.responseText);
+                    showToast('Das ging schief: ' + xhr.responseText);
                 }
             });
-
         } else {
-            $("#name").css("border-color", "red");
-            showToast("Fehlt da nicht irgendwas?");
+            showToast("Bitte alle rot umrandeten Felder ausfüllen!");
         }
     });
 });

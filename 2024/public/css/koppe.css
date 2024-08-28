@@ -17,7 +17,7 @@
     --black: #000;
     --green: #566344;
     --border: 1px solid #566344;
-    --highlight: #253661;
+    --blue: #253661;
 }
 
 /* Font */
@@ -42,7 +42,7 @@
 
 .icon {
     font-size: 50px;
-    font-family: 'farmgarden2';
+    font-family: 'farmgarden1';
 }
 
 /* Tags */
@@ -83,7 +83,7 @@ BODY {
 
 #weather1:hover, #weather2:hover {
     opacity: 100%;
-    border-color: var(--highlight);
+    border-color: var(--blue);
 }
 
 /* Headline */
@@ -158,7 +158,7 @@ input[type=number] {
 }
 
 input:hover, textarea:hover {
-  border: 1px solid var(--highlight);
+  border: 1px solid var(--blue);
 }
 
 .title-item {
@@ -202,12 +202,12 @@ hr {
 
 .so_far a:hover {
     text-decoration: underline;
-    color: var(--highlight);
+    color: var(--blue);
 }
 
 /* Houses */
 #list > div:nth-child(odd) {
-    color: var(--light_gray);
+    color: var(--blue);
 }
 
 #list > div:nth-child(even) {

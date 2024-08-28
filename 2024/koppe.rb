@@ -30,14 +30,14 @@ class Houses
   include DataMapper::Resource
 
   property :id,             Serial
-  property :housenom,       Integer, :unique_index => :index_houseno_u
+  property :houseno,        Integer, :unique_index => :index_houseno_u
   property :adultsno,       Integer
   property :childrenno,     Integer
   property :beerbenchsno,   Integer
   property :gardentablesno, Integer
   property :chairsno,       Integer
   property :standtablesno,  Integer
-  property :walltableno,    Integer
+  property :walltablesno,   Integer
   property :tentsno,        Integer
   property :grillsno,       Integer
   property :parasolsno,     Integer
@@ -71,11 +71,11 @@ get "/" do
 
   @houses.each do |h|
     @adultsno += h.adultsno
-    @childreno += h.childrenno
+    @childrenno += h.childrenno
     @beerbenchsno += h.beerbenchsno
     @gardentablesno += h.gardentablesno
     @chairsno += h.chairsno
-    @standtablesno += h.standtableno
+    @standtablesno += h.standtablesno
     @walltablesno += h.walltablesno
     @tentsno += h.tentsno
     @grillsno += h.grillsno
@@ -90,8 +90,9 @@ end
 post "/visit" do
   begin
     Houses.create(
+      houseno: params["houseno"],
       adultsno: params["adultsno"],
-      childreno: params["childrenno"],
+      childrenno: params["childrenno"],
       beerbenchsno: params["beerbenchsno"],
       gardentablesno: params["gardentablesno"],
       chairsno: params["chairsno"],
@@ -108,7 +109,7 @@ post "/visit" do
       created_at: Time.now
     )
   rescue DataObjects::IntegrityError => err
-    halt 400, "Kennen wir schon!"
+    halt 400, "Diese Hausnummer wurde schon eingetragen!"
   end
 
   200

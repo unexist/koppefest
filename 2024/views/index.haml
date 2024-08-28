@@ -45,7 +45,7 @@
                             .col-md-12.text-item.space
                                 für viele geht nun schon das 10. Jahr in der Siedlung zu Ende… während Corona haben wir es nicht geschafft bzw. gewagt, aber nun ist es wieder so weit….
                             .col-md-12.text-item.space
-                                Um ein wenig Koordinieren zu können bitten wir bis 30.08.2024 um Rückmeldung über dieses Formular oder bei Rückfragen bei Manuela (Hausnr. 149) oder Christoph (Hausnr. 89) melden.
+                                Um ein wenig Koordinieren zu können bitten wir bis 30.08.2024 um Rückmeldung über dieses Formular oder bei Rückfragen bei Manuela (#149) oder Christoph (#89) melden.
                             .col-md-12.text-item.space
                                 Auf jeden Fall mitzubringen: 
                             .col-md-12.text-item.space
@@ -64,7 +64,7 @@
                         Ich/Wir wohnen in Hausnummer
                         %select.space{id: "houseno", tabindex: 1}
                             -(1..159).step(2).each do |num|
-                                %option{value: num}= num
+                                %option{value: num}= "&sharp;%d" % num
                 %tr
                     %td
                         Ich/Wir kommen mit
@@ -81,7 +81,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "beerbenchno", type: "number", min: 0, value: 0, tabindex: 4}
+                        %input.input-lg{id: "beerbenchsno", type: "number", min: 0, value: 0, tabindex: 4}
                         Bierzeltgarnitur(en) mitbringen
                     %td.so_far
                         (Bisher
@@ -90,7 +90,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "tablesno", type: "number", min: 0, value: 0, tabindex: 5}
+                        %input.input-lg{id: "gardentablesno", type: "number", min: 0, value: 0, tabindex: 5}
                         Gartentisch(e) und
                         %input.input-lg{id: "chairsno", type: "number", min: 0, value: 0, tabindex: 6}
                         Stühle mitbringen
@@ -112,7 +112,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "papertableno", type: "number", min: 0, value: 0, tabindex: 8}
+                        %input.input-lg{id: "walltablesno", type: "number", min: 0, value: 0, tabindex: 8}
                         Tapeziertisch(e) [als Buffett] mitbringen
                     %td.so_far
                         (Bisher
@@ -139,7 +139,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "parasolno", type: "number", min: 0, value: 0, tabindex: 11}
+                        %input.input-lg{id: "parasolsno", type: "number", min: 0, value: 0, tabindex: 11}
                         Sonnenschirme mitbringen
                     %td.so_far
                         (Bisher
@@ -186,8 +186,11 @@
 
                 %tr{id: "houses"}
                     %td{colspan: 2}
+                        %h2
+                            Folgende Hausnummern sind schon mit dabei:
+
                         #list.d-flex.flex-row.flex-wrap
                             -# Houses
                             - @houses.each do |h|
                                 %div
-                                    %span{class: 'icon'}= h.houseno rescue 89
+                                    %span{class: 'icon'}= "&sharp;%d" % h.houseno rescue 89
