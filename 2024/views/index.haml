@@ -64,7 +64,8 @@
                         Ich/Wir wohnen in Hausnummer
                         %select.space{id: "houseno", tabindex: 1}
                             -(1..159).step(2).each do |num|
-                                %option{value: num}= "&sharp;%d" % num
+                                -unless @visitornos.include? num
+                                    %option{value: num}= "&sharp;%d" % num
                 %tr
                     %td
                         Ich/Wir kommen mit

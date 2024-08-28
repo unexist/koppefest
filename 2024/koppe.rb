@@ -69,6 +69,8 @@ get "/" do
   @buildup = 0
   @teardown = 0
 
+  @visitornos = []
+
   @houses.each do |h|
     @adultsno += h.adultsno
     @childrenno += h.childrenno
@@ -82,6 +84,8 @@ get "/" do
     @parasolsno += h.parasolsno
     @buildup += h.buildup
     @teardown += h.teardown
+
+    @visitornos << h.houseno
   end
 
   haml :index
