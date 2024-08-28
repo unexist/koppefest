@@ -1,3 +1,14 @@
+/*
+ * @package koppefest
+ *
+ * @file jquery handler
+ * @author Christoph Kappel <christoph@unexist.dev>
+ * @version $Id: 2024/koppe.rb,v 0 1724858416.0-7200 unexist $
+ *¬
+ * This program can be distributed under the terms of the GNU GPLv3.
+ * See the file COPYING for details.
+ */
+
 $(document).ready(function() {
 
     /**
@@ -49,13 +60,6 @@ $(document).ready(function() {
             }
         });
     }
-
-    /* Handle font */
-    $("#font-switch").click(function() {
-        $("body").css("font-family", '"Comic Sans MS", "Comic Sans", arial');
-        $(".text-item").css("color", "#ffffff");
-        $(".dingbats").removeClass("dingbats");
-    });
 
     /* Handle submit */
     $(".submit").click(function(e) {
