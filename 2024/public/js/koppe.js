@@ -103,8 +103,8 @@ $(document).ready(function() {
                         + $('#houseno').val() + '</span></div>'));
 
                     /* Reset errors */
-                    $(fields).each(function(elemName) {
-                        var elem = $('#' + elem);
+                    $(fields).each(function(idx, elemName) {
+                        var elem = $('#' + elemName);
 
                         elem.css('border-color', 'black');
                     });
