@@ -68,9 +68,9 @@
                 %tr
                     %td
                         Ich/Wir kommen mit
-                        %input.input-lg{id: "adultsno", type: "number", min: 0, value: 1}
+                        %input.input-lg{id: "adultsno", type: "number", min: 0, value: 1, tabindex: 2}
                         Erwachsenen
-                        %input.input-lg{id: "childrenno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "childrenno", type: "number", min: 0, value: 0, tabindex: 3}
                         Kindern
                     %td.so_far
                         (Bisher
@@ -81,7 +81,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "beerbenchno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "beerbenchno", type: "number", min: 0, value: 0, tabindex: 4}
                         Bierzeltgarnitur(en) mitbringen
                     %td.so_far
                         (Bisher
@@ -90,9 +90,9 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "tablesno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "tablesno", type: "number", min: 0, value: 0, tabindex: 5}
                         Gartentisch(e) und
-                        %input.input-lg{id: "chairsno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "chairsno", type: "number", min: 0, value: 0, tabindex: 6}
                         Stühle mitbringen
                     %td.so_far
                         (Bisher
@@ -103,7 +103,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "standtablesno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "standtablesno", type: "number", min: 0, value: 0, tabindex: 7}
                         Stehtische mitbringen
                     %td.so_far
                         (Bisher
@@ -112,7 +112,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "papertableno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "papertableno", type: "number", min: 0, value: 0, tabindex: 8}
                         Tapeziertisch(e) [als Buffett] mitbringen
                     %td.so_far
                         (Bisher
@@ -121,7 +121,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "tentsno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "tentsno", type: "number", min: 0, value: 0, tabindex: 9}
                         Zelte mitbringen
                     %td.so_far
                         (Bisher
@@ -130,7 +130,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "grillsno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "grillsno", type: "number", min: 0, value: 0, tabindex: 10}
                         Grill mitbringen
                     %td.so_far
                         (Bisher
@@ -139,7 +139,7 @@
                 %tr
                     %td
                         Ich/Wir können
-                        %input.input-lg{id: "parasolno", type: "number", min: 0, value: 0}
+                        %input.input-lg{id: "parasolno", type: "number", min: 0, value: 0, tabindex: 11}
                         Sonnenschirme mitbringen
                     %td.so_far
                         (Bisher
@@ -148,20 +148,20 @@
                 %tr
                     %td{colspan: 2}
                         Ich/Wir bringen Speisen mit: 
-                        %textarea{id: "comment", rows: 2, tabindex: 2}
+                        %textarea{id: "comment", rows: 2, tabindex: 12}
                 %tr
                     %td{colspan: 2}
                         Ich/Wir bringen Getränke mit: 
-                        %textarea{id: "comment", rows: 2, tabindex: 2}
+                        %textarea{id: "comment", rows: 2, tabindex: 13}
                 %tr
                     %td{colspan: 2}
                         Sonstiges: 
-                        %textarea{id: "comment", rows: 2, tabindex: 2}
+                        %textarea{id: "comment", rows: 2, tabindex: 14}
 
                 %tr
                     %td
                         .form-check.form-switch
-                            %input.form-check-input{type: "checkbox", id: "buildup"}
+                            %input.form-check-input{type: "checkbox", id: "buildup", tabindex: 15}
                             %label.form-check-label{for: "buildup"}
                                 Ich/Wir können beim Aufbau helfen
                     %td.so_far
@@ -172,7 +172,7 @@
                 %tr
                     %td
                         .form-check.form-switch
-                            %input.form-check-input{type: "checkbox", id: "teardown"}
+                            %input.form-check-input{type: "checkbox", id: "teardown", tabindex: 16}
                             %label.form-check-label{for: "buildup"}
                                 Ich/Wir können beim Aufbau helfen
                     %td.so_far
@@ -182,7 +182,7 @@
 
                 %tr
                     %td{colspan: 2}
-                        %input{class: "submit", type: "button", value: "Abschicken", tabindex: 3}
+                        %input{class: "submit", type: "button", value: "Abschicken", tabindex: 17}
 
                 %tr{id: "houses"}
                     %td{colspan: 2}
