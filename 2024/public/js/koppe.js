@@ -61,6 +61,24 @@ $(document).ready(function() {
         });
     }
 
+    /* Handle cancellation */
+    $('.cancel').click(function(e) {
+        var elems = $('input[type="number"], textarea');
+
+        elems.each(function(idx, elem) {
+            var that = $(elem);
+
+            if (that.is('input')) {
+                that.val(0);
+            } else {
+                that.val('');
+            }
+        });
+
+        $('.submit').trigger('click');
+    });
+
+
     /* Handle submit */
     $('.submit').click(function(e) {
         const fields = [

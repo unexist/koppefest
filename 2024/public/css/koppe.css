@@ -18,6 +18,7 @@
     --green: #566344;
     --border: 1px solid #566344;
     --blue: #253661;
+    --red: #ff0000;
 }
 
 /* Font */
@@ -43,6 +44,16 @@
 .icon {
     font-size: 50px;
     font-family: 'farmgarden1';
+}
+
+a.cancel, a.cancel:link, a.cancel:visited, a.cancel:active {
+    color: var(--red);
+    text-decoration: none;
+    font-family: 'farmgarden1';
+}
+
+a.cancel:hover {
+    text-decoration: underline;
 }
 
 /* Tags */
