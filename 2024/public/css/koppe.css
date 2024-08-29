@@ -64,6 +64,10 @@ BODY {
     background-image: url(../media/koppestr.png);
 }
 
+#wallpaper > div {
+    word-wrap: break-word;
+}
+
 #weather1 {
     background-image: url(../media/weather1.jpg);
     border-right: none;
