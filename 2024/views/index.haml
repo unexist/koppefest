@@ -59,7 +59,7 @@
                             %td{colspan: 2}
                                 Ich/Wir wohnen in Hausnummer
                                 %select.space{id: "houseno", tabindex: 1}
-                                    -(1..159).step(2).each do |num|
+                                    -(7..159).step(2).each do |num|
                                         -unless @visitornos.include? num
                                             %option{value: num}= "&sharp;%d" % num
                         %tr
